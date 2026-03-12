@@ -58,57 +58,57 @@ const Contact = () => {
       initial="hidden"
       animate="visible"
     >
-      <h1 style={{ marginBottom: '0.5rem' }}><b>Contact Me</b></h1>
+      <h1 className="section-title">Contact Me</h1>
       
-      <div className="contact-grid" style={{ marginTop: '3rem' }}>
-        <motion.div className="card glass" variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '1rem' }}>Let's build something amazing together.</h2>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Open to freelance, internships & full-time opportunities.</p>
+      <div className="contact-grid">
+        <motion.div className="card glass contact-info" variants={itemVariants}>
+          <div className="contact-info-header">
+            <h2>Let's build something amazing together.</h2>
+            <p>Open to freelance, internships & full-time opportunities.</p>
           </div>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Mail style={{ color: 'var(--primary)', minWidth: '24px' }} size={24} />
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.1rem' }}>Email</strong>
-                <a href="mailto:vaibhavdpawar9921@gmail.com" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = 'var(--primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>vaibhavdpawar9921@gmail.com</a>
+          <div className="contact-methods">
+            <div className="contact-method">
+              <Mail className="contact-icon" size={24} />
+              <div className="contact-text">
+                <strong>Email</strong>
+                <a href="mailto:vaibhavdpawar9921@gmail.com">vaibhavdpawar9921@gmail.com</a>
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Linkedin style={{ color: 'var(--primary)', minWidth: '24px' }} size={24} />
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.1rem' }}>LinkedIn</strong>
-                <a href="https://www.linkedin.com/in/vaibhav-pawar-0011913b4" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = 'var(--primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>linkedin.com/in/vaibhav-pawar</a>
+            <div className="contact-method">
+              <Linkedin className="contact-icon" size={24} />
+              <div className="contact-text">
+                <strong>LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/vaibhav-pawar-0011913b4" target="_blank" rel="noopener noreferrer">linkedin.com/in/vaibhav-pawar</a>
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <MapPin style={{ color: 'var(--primary)', minWidth: '24px' }} size={24} />
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.1rem' }}>Location</strong>
-                <span style={{ color: 'var(--text-muted)' }}>Malegaon, India</span>
+            <div className="contact-method">
+              <MapPin className="contact-icon" size={24} />
+              <div className="contact-text">
+                <strong>Location</strong>
+                <span>Malegaon, India</span>
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Phone style={{ color: 'var(--primary)', minWidth: '24px' }} size={24} />
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.1rem' }}>Phone</strong>
-                <a href="tel:+919699553980" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = 'var(--primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>+91 9699553980</a>
+            <div className="contact-method">
+              <Phone className="contact-icon" size={24} />
+              <div className="contact-text">
+                <strong>Phone</strong>
+                <a href="tel:+919699553980">+91 9699553980</a>
               </div>
             </div>
           </div>
           
-          <div style={{ marginTop: 'auto', paddingTop: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="contact-actions">
             <a href="mailto:vaibhavdpawar9921@gmail.com" className="btn">Send Email</a>
             <a href="tel:+919699553980" className="btn btn-secondary">Call Me</a>
           </div>
         </motion.div>
 
-        <motion.div className="card glass" variants={itemVariants}>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '2rem' }}>Send a Message</h3>
+        <motion.div className="card glass contact-form-card" variants={itemVariants}>
+          <h3>Send a Message</h3>
           <form 
             action="https://formsubmit.co/vaibhavdpawar9921@gmail.com" 
             method="POST" 
@@ -129,9 +129,9 @@ const Contact = () => {
                 placeholder="John Doe" 
                 value={formData.name}
                 onChange={handleChange}
-                style={{ borderColor: errors.name ? '#ef4444' : '' }}
+                className={errors.name ? 'error' : ''}
               />
-              {errors.name && <span style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '4px' }}>{errors.name}</span>}
+              {errors.name && <span className="error-text">{errors.name}</span>}
             </div>
             
             <div className="form-group">
@@ -143,9 +143,9 @@ const Contact = () => {
                 placeholder="john@example.com" 
                 value={formData.email}
                 onChange={handleChange}
-                style={{ borderColor: errors.email ? '#ef4444' : '' }}
+                className={errors.email ? 'error' : ''}
               />
-              {errors.email && <span style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '4px' }}>{errors.email}</span>}
+              {errors.email && <span className="error-text">{errors.email}</span>}
             </div>
             
             <div className="form-group">
@@ -157,12 +157,12 @@ const Contact = () => {
                 placeholder="Your message here..."
                 value={formData.message}
                 onChange={handleChange}
-                style={{ borderColor: errors.message ? '#ef4444' : '' }}
+                className={errors.message ? 'error' : ''}
               ></textarea>
-              {errors.message && <span style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '4px' }}>{errors.message}</span>}
+              {errors.message && <span className="error-text">{errors.message}</span>}
             </div>
             
-            <button type="submit" className="btn" style={{ width: '100%', marginTop: '1rem' }}>
+            <button type="submit" className="btn submit-btn">
               Submit Message
             </button>
           </form>

@@ -38,8 +38,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="glass shadow-lg">
+    <nav className="navbar shadow-lg">
       <div className="nav-container">
+        <NavLink to="/" className="nav-logo">
+          Vaibhav Pawar
+        </NavLink>
+
         {/* Desktop Links */}
         <div className="nav-links desktop-only">
           {navLinks.map((link) => (

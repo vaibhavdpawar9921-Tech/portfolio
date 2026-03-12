@@ -45,9 +45,11 @@ const Home = () => {
         <h1><span className="hero-name">Vaibhav Pawar</span></h1>
         <motion.h2 className="subtitle" variants={itemVariants}>Full Stack Developer</motion.h2>
         
-        <motion.p variants={itemVariants} style={{ fontWeight: 'bold' }}>
-          I am a software engineer with a passion for coding life into ideas.<br />
+        <motion.p variants={itemVariants} className="hero-description">
+          I am a software engineer with a passion for coding life into ideas.
           I have a background in Full Stack Development and Machine Learning.
+          Specializing in building scalable web applications and AI-driven solutions.
+          Dedicated to delivering clean code and exceptional user experiences.
         </motion.p>
 
         <motion.div className={`social-links ${showSocials ? 'show' : ''}`} variants={itemVariants}>
