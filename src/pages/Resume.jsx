@@ -57,7 +57,7 @@ const Resume = () => {
             <div className="resume-entry-header">
               <span>The Perfect Home – Property Search Platform</span>
             </div>
-            <div style={{ fontStyle: 'italic', fontSize: '0.9rem', color: '#4b5563', marginBottom: '0.5rem' }}>
+            <div className="resume-entry-subtitle">
               Tech Stack: React.js, Node.js, Express.js, MySQL
             </div>
             <ul className="resume-list">
@@ -72,7 +72,7 @@ const Resume = () => {
             <div className="resume-entry-header">
               <span>AI Custom GPT</span>
             </div>
-            <div style={{ fontStyle: 'italic', fontSize: '0.9rem', color: '#4b5563', marginBottom: '0.5rem' }}>
+            <div className="resume-entry-subtitle">
               Tech Stack: AI, Prompt Engineering, API Integration
             </div>
             <ul className="resume-list">
@@ -92,8 +92,8 @@ const Resume = () => {
               <span>Diploma in Information Technology</span>
               <span className="date">2023 – 2026</span>
             </div>
-            <div style={{ color: '#4b5563' }}>Government Polytechnic Nashik</div>
-            <div style={{ fontWeight: 600 }}>Final Year Percentage: 85%</div>
+            <div className="resume-edu-inst">Government Polytechnic Nashik</div>
+            <div className="resume-edu-detail">Final Year Percentage: 85%</div>
           </div>
           
         </section>
@@ -105,8 +105,8 @@ const Resume = () => {
               <span>Full Stack Developer & AI Engineer Intern</span>
               <span className="date">6 Months</span>
             </div>
-            <div style={{ color: '#4b5563' }}>ESTPL Engeniuspark Technologies Pvt. Ltd.</div>
-            <div style={{ fontStyle: 'italic', fontSize: '0.9rem' }}>Nashik, Maharashtra</div>
+            <div className="resume-edu-inst">ESTPL Engeniuspark Technologies Pvt. Ltd.</div>
+            <div className="resume-entry-subtitle">Nashik, Maharashtra</div>
           </div>
         </section>
 

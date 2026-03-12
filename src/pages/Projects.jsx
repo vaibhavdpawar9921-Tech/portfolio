@@ -140,10 +140,6 @@ const Projects = () => {
         </div>
       </section>
 
-      <footer style={{ marginTop: '8rem', textAlign: 'center', paddingBottom: '4rem' }}>
-        <h2 style={{ marginBottom: '1.5rem' }}>Interested in working together?</h2>
-        <a href="/contact" className="btn" style={{ padding: '1rem 3rem' }}>Get In Touch</a>
-      </footer>
     </main>
   );
 };

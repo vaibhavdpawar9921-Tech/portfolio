@@ -34,7 +34,9 @@ const Home = () => {
       >
         <motion.img 
           src={profileImg} 
+          
           alt="Vaibhav Pawar" 
+
           className="profile-img" 
           variants={itemVariants}
           animate={{ y: [0, -10, 0] }}
@@ -56,9 +58,8 @@ const Home = () => {
         </motion.div>
 
         <motion.div className="actions" variants={itemVariants}>
-          <a href="/projects" className="btn">View Projects</a>
           <button onClick={toggleSocials} className="btn btn-secondary">
-            {showSocials ? 'Hide Links' : 'Get in Touch'}
+            {showSocials ? <i className="fa-solid fa-arrow-left"></i> : 'Get in Touch'}
           </button>
         </motion.div>
       </motion.section>

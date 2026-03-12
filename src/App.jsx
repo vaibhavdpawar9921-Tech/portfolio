@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
+      <Footer />
     </>
   );
 }
