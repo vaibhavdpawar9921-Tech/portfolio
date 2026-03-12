@@ -90,9 +90,6 @@ nav {
 .nav-links {
   display: flex;
   gap: 2rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .nav-actions {
@@ -298,9 +295,10 @@ p {
     font-size: 2.5rem;
   }
   nav {
-    gap: 1rem;
-    padding: 1rem;
-    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+  .nav-container {
+    padding: 0.8rem 1rem;
   }
   .container {
     padding: 2rem 1rem;
@@ -416,9 +414,73 @@ p {
 }
 
 @media (max-width: 900px) {
-  .nav-links {
-    display: none; /* simple mobile fix, can add burger later if needed */
+  .desktop-only {
+    display: none !important;
   }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-menu-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--card-bg);
+}
+
+.mobile-menu {
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.mobile-nav-links a {
+  font-size: 1.1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: block;
+}
+
+.mobile-nav-links a.active {
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.resume-link-mobile {
+  margin-top: 0.5rem;
+  border: 1px solid var(--primary);
+  color: var(--primary) !important;
+  text-align: center;
+  font-weight: 700;
 }
 
 /* Contact Page Specifics */

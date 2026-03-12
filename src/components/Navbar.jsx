@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -13,35 +15,46 @@ const Navbar = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    // Close menu when resizing to desktop
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <nav>
+    <nav className="glass shadow-lg">
       <div className="nav-container">
-        <div className="nav-links">
-          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Contact
-          </NavLink>
+        {/* Desktop Links */}
+        <div className="nav-links desktop-only">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
 
-        <div className="nav-actions" style={{ marginLeft: "auto" }}>
-          <div className="resume-actions" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="nav-actions">
+          <div className="resume-actions desktop-only">
             <NavLink
               to="/resume"
               className={({ isActive }) =>
@@ -61,15 +74,6 @@ const Navbar = () => {
                       }} 
                       className="download-icon-btn"
                       title="Download/Print Resume"
-                      style={{ 
-                        border: 'none', 
-                        background: 'transparent', 
-                        padding: '0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        cursor: 'pointer',
-                        color: 'inherit'
-                      }}
                     >
                       <i className="fa-solid fa-download"></i>
                     </button>
@@ -90,8 +94,52 @@ const Navbar = () => {
               <i className="fa-solid fa-moon"></i>
             )}
           </button>
+
+          {/* Hamburger Menu Toggle */}
+          <button 
+            className="mobile-menu-toggle"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <i className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="mobile-nav-links">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+              <NavLink
+                to="/resume"
+                className={({ isActive }) =>
+                  isActive ? "active resume-link-mobile" : "resume-link-mobile"
+                }
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
+              </NavLink>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
