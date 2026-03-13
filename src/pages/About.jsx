@@ -24,21 +24,21 @@ const About = () => {
       initial="hidden"
       animate="visible"
     >
-      <h1><b>About Me</b></h1>
+      <header className="section-header">
+        <h1>About Me</h1>
+        <p>A passionate developer focused on building scalable systems and elegant user experiences.</p>
+      </header>
       
       <motion.div className="card glass" variants={itemVariants}>
-        <p>I have completed a Diploma in Information Technology from Government Polytechnic Nashik,
-           where I built a strong foundation in software engineering principles and modern development practices.</p>
+        <p>I hold a Diploma in Information Technology from Government Polytechnic Nashik, where I developed a strong foundation in software engineering and modern development practices.</p>
 
-         <p>I specialize in developing scalable web applications capable of handling high traffic and complex business requirements. 
-          My focus is on building robust, maintainable, and efficient solutions that scale seamlessly with evolving business needs.</p>
+        <p>I specialize in building scalable web applications designed to handle high traffic and complex requirements. My focus is on creating robust, maintainable solutions that evolve with business needs.</p>
 
-          <p>I have hands-on experience in Microservices architecture, where I design and implement distributed systems that are resilient, scalable, and easy to maintain.
-          My expertise includes service-to-service communication, API gateway integration, and containerized deployments.</p>
+        <p>With expertise in Microservices architecture, I design resilient distributed systems, focusing on service communication, API gateways, and containerized deployments.</p>
       </motion.div>
       
       <section className="skills-container">
-        <h2><b>Technical Skills</b></h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Technical Skills</h2>
         <div className="skills-grid">
           <motion.div className="card glass skill-category" variants={itemVariants}>
             <h4>Programming Languages</h4>
@@ -79,7 +79,7 @@ const About = () => {
       </section>
 
       <section className="timeline">
-        <h2><b>Education & Journey</b></h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Education & Journey</h2>
         
         <motion.div className="timeline-item" variants={itemVariants}>
           <div className="timeline-content card glass">

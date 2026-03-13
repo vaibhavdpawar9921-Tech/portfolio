@@ -43,13 +43,7 @@ const ProjectCard = ({ title, tagline, features, tech, github, live, isComingSoo
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2rem' }}>
         {tech.map((t, i) => (
-          <span key={i} className="badge" style={{ 
-            background: 'var(--card-bg)', 
-            color: 'var(--text-muted)', 
-            border: '1px solid var(--glass-border)', 
-            fontSize: '0.75rem',
-            padding: '0.3rem 0.8rem'
-          }}>
+          <span key={i} className="badge">
             {t}
           </span>
         ))}
@@ -103,7 +97,7 @@ const Projects = () => {
     <main className="container">
       <header className="section-header">
         <h1>My Projects</h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem' }}>Selected Work & AI Solutions I Built</p>
+        <p>A collection of full-stack applications and AI-driven solutions built with scalability in mind.</p>
       </header>
 
       <section className="grid">
@@ -113,26 +107,26 @@ const Projects = () => {
       </section>
 
       {/* THE ENGINEERING MINDSET SECTION */}
-      <section style={{ marginTop: '8rem', maxWidth: '800px', margin: '6rem auto 0', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem', fontWeight: '800' }}>The Engineering Mindset</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: '1.9', marginBottom: '3.5rem' }}>
-          I focus on building applications that aren't just functional, but are built to <strong>scale</strong>. 
-          From optimizing complex queries in <strong>MySQL</strong> to crafting high-fidelity, responsive interfaces in <strong>React</strong>, 
-          my goal is to deliver clean, maintainable code that solves real-world business challenges and provides measurable value.
+      <section style={{ marginTop: '10rem', maxWidth: '900px', margin: '8rem auto 0', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontWeight: '800' }}>The Engineering Mindset</h2>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '4rem', marginLeft: 'auto', marginRight: 'auto' }}>
+          I build applications that are more than just functional—they are designed to <strong>scale</strong>. 
+          From optimizing complex <strong>MySQL</strong> queries to crafting high-performance <strong>React</strong> interfaces, 
+          I deliver maintainable code that solves real-world challenges.
         </p>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', textAlign: 'left' }}>
           <div className="card glass">
-            <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', fontSize: '1.2rem' }}>⚡ Scalability</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Designing modular architectures that grow seamlessly with user demand and data complexity.</p>
+            <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.25rem' }}>⚡ Scalability</h4>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: 0 }}>Designing modular architectures that grow seamlessly with user demand and data complexity.</p>
           </div>
           <div className="card glass">
-            <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', fontSize: '1.2rem' }}>🔒 Security</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Implementing robust JWT authentication and secure API patterns to safeguard sensitive user data.</p>
+            <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.25rem' }}>🔒 Security</h4>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: 0 }}>Implementing robust JWT authentication and secure API patterns to safeguard sensitive user data.</p>
           </div>
           <div className="card glass">
-            <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', fontSize: '1.2rem' }}>📱 Performance</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>Prioritizing speed and responsiveness to ensure a fluid experience across every device and network.</p>
+            <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.25rem' }}>📱 Performance</h4>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: 0 }}>Prioritizing speed and responsiveness to ensure a fluid experience across every device and network.</p>
           </div>
         </div>
       </section>

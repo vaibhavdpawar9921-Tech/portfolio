@@ -58,7 +58,10 @@ const Contact = () => {
       initial="hidden"
       animate="visible"
     >
-      <h1 className="section-title">Contact Me</h1>
+      <header className="section-header">
+        <h1>Contact Me</h1>
+        <p>Interested in working together or just want to say hi? I'd love to hear from you!</p>
+      </header>
       
       <div className="contact-grid">
         <motion.div className="card glass contact-info" variants={itemVariants}>
