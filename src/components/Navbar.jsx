@@ -58,6 +58,19 @@ const Navbar = () => {
         </div>
 
         <div className="nav-actions">
+          {/* Theme Toggle - Visible on all screens */}
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? (
+              <i className="fa-solid fa-sun"></i>
+            ) : (
+              <i className="fa-solid fa-moon"></i>
+            )}
+          </button>
+
           <div className="resume-actions desktop-only">
             <NavLink
               to="/resume"
@@ -87,19 +100,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          <button 
-            onClick={toggleTheme} 
-            className="theme-toggle"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <i className="fa-solid fa-sun"></i>
-            ) : (
-              <i className="fa-solid fa-moon"></i>
-            )}
-          </button>
-
-          {/* Hamburger Menu Toggle */}
+          {/* Hamburger Menu Toggle - Mobile Only */}
           <button 
             className="mobile-menu-toggle"
             onClick={toggleMenu}
@@ -110,38 +111,48 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            className="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <div className="mobile-nav-links">
-              {navLinks.map((link) => (
+          <>
+            {/* Backdrop for mobile menu */}
+            <motion.div 
+              className="mobile-menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <motion.div 
+              className="mobile-menu"
+              initial={{ y: -20, opacity: 0, height: 0 }}
+              animate={{ y: 0, opacity: 1, height: "auto" }}
+              exit={{ y: -20, opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="mobile-nav-links">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
                 <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  to="/resume"
+                  className={({ isActive }) =>
+                    isActive ? "active resume-link-mobile" : "resume-link-mobile"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {link.name}
+                  Resume
                 </NavLink>
-              ))}
-              <NavLink
-                to="/resume"
-                className={({ isActive }) =>
-                  isActive ? "active resume-link-mobile" : "resume-link-mobile"
-                }
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Resume
-              </NavLink>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

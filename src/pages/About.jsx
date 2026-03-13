@@ -29,12 +29,12 @@ const About = () => {
         <p>A passionate developer focused on building scalable systems and elegant user experiences.</p>
       </header>
       
-      <motion.div className="card glass" variants={itemVariants}>
-        <p>I hold a Diploma in Information Technology from Government Polytechnic Nashik, where I developed a strong foundation in software engineering and modern development practices.</p>
+      <motion.div className="card glass" variants={itemVariants} style={{ textAlign: 'center' }}>
+        <p style={{ margin: '0 auto 1.5rem', maxWidth: '850px' }}>I hold a Diploma in Information Technology from Government Polytechnic Nashik, where I developed a strong foundation in software engineering and modern development practices.</p>
 
-        <p>I specialize in building scalable web applications designed to handle high traffic and complex requirements. My focus is on creating robust, maintainable solutions that evolve with business needs.</p>
+        <p style={{ margin: '0 auto 1.5rem', maxWidth: '850px' }}>I specialize in building scalable web applications designed to handle high traffic and complex requirements. My focus is on creating robust, maintainable solutions that evolve with business needs.</p>
 
-        <p>With expertise in Microservices architecture, I design resilient distributed systems, focusing on service communication, API gateways, and containerized deployments.</p>
+        <p style={{ margin: '0 auto', maxWidth: '850px' }}>With expertise in Microservices architecture, I design resilient distributed systems, focusing on service communication, API gateways, and containerized deployments.</p>
       </motion.div>
       
       <section className="skills-container">
@@ -50,10 +50,6 @@ const About = () => {
             <p className="skill-text">HTML5, CSS3, JavaScript, React.js, Node.js, Express.js, REST APIs, Full Stack Development (MERN Stack)</p>
           </motion.div>
 
-          <motion.div className="card glass skill-category" variants={itemVariants}>
-            <h4>Database</h4>
-            <p className="skill-text">MySQL, MongoDB</p>
-          </motion.div>
 
           <motion.div className="card glass skill-category" variants={itemVariants}>
             <h4>Operating Systems</h4>

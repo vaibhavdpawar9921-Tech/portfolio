@@ -49,6 +49,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -134,7 +135,7 @@ nav a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--primary);
+  background-color: var(--text);
   transition: var(--transition);
 }
 
@@ -228,14 +229,14 @@ p, .hero-description {
   border-radius: 12px;
   font-weight: 600;
   font-size: 1rem;
-  transition: var(--transition);
   border: none;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
   filter: brightness(1.1);
 }
 
@@ -262,7 +263,6 @@ p, .hero-description {
 .card:hover {
   transform: translateY(-8px);
   border-color: var(--primary);
-  box-shadow: 0 20px 40px rgba(0, 210, 255, 0.1);
 }
 
 .grid {
@@ -339,6 +339,7 @@ p, .hero-description {
     max-width: 60%;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mobile-menu-toggle {
@@ -418,6 +419,32 @@ p, .hero-description {
   p, .hero-description {
     font-size: 0.9rem;
   }
+
+  /* Projects Section Fixes */
+  section[style*="margin-top: 10rem"] {
+    margin-top: 4rem !important;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Social Icons */
@@ -455,9 +482,9 @@ p, .hero-description {
 }
 
 .social-link:hover {
-  color: var(--primary);
+  color: var(--text);
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 8px var(--primary-glow));
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
 }
 
 .resume-actions {
@@ -573,12 +600,14 @@ p, .hero-description {
   width: 100%;
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   overflow: hidden;
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-nav-links {
@@ -598,6 +627,17 @@ p, .hero-description {
 .mobile-nav-links a.active {
   background: var(--primary-glow);
   color: var(--primary);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 998;
 }
 
 .resume-link-mobile {
@@ -936,7 +976,7 @@ p, .hero-description {
 }
 
 .tech-card h4 {
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
@@ -949,7 +989,7 @@ p, .hero-description {
 
 .stat-item h3 {
   font-size: 2.5rem;
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
@@ -1124,14 +1164,16 @@ p, .hero-description {
 }
 
 .skill-category h4 {
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 .skill-text {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
 }
 
 .timeline {
@@ -1145,7 +1187,7 @@ p, .hero-description {
 .timeline-date {
   display: inline-block;
   background: var(--primary-glow);
-  color: var(--primary);
+  color: var(--text);
   padding: 0.3rem 1rem;
   border-radius: 50px;
   font-weight: 600;
