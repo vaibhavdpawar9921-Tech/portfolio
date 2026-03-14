@@ -120,7 +120,7 @@ const Contact = () => {
           >
             {/* FormSubmit Configuration */}
             <input type="hidden" name="_subject" value="New submission from Portfolio!" />
-            <input type="hidden" name="_captcha" value="true" />
+            <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="box" />
             
             <div className="form-group">
