@@ -8,6 +8,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
+import Success from './pages/Success';
 
 const PageWrapper = ({ children }) => (
   <motion.div
@@ -33,6 +34,7 @@ function App() {
           <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
           <Route path="/resume" element={<PageWrapper><Resume /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/success" element={<PageWrapper><Success /></PageWrapper>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
