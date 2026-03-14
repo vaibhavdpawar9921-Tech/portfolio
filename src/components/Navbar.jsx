@@ -58,6 +58,15 @@ const Navbar = () => {
         </div>
 
         <div className="nav-actions">
+          {/* Hamburger Menu Toggle - Mobile Only */}
+          <button 
+            className="mobile-menu-toggle"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <i className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>
+          </button>
+
           {/* Theme Toggle - Visible on all screens */}
           <button 
             onClick={toggleTheme} 
@@ -99,15 +108,6 @@ const Navbar = () => {
               )}
             </NavLink>
           </div>
-
-          {/* Hamburger Menu Toggle - Mobile Only */}
-          <button 
-            className="mobile-menu-toggle"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <i className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>
-          </button>
         </div>
       </div>
 
