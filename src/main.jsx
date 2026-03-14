@@ -6,7 +6,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname.includes('/My Protfolio') ? '/My Protfolio' : '/'}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
